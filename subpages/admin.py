@@ -1,5 +1,6 @@
 from django.contrib import admin
 from subpages.models import Subpage
+from django.conf import settings
 
 class SubpageAdmin(admin.ModelAdmin):
     list_display = ('name', 'created_at', 'updated_at')

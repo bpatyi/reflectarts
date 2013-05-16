@@ -1,5 +1,6 @@
 from django.contrib import admin
 from pictures.models import Picture
+from django.conf import settings
 
 class PictureAdmin(admin.ModelAdmin):
     list_display = ('title', 'get_exhibition_title', 'created_at', 'updated_at')

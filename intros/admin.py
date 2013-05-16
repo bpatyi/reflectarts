@@ -1,5 +1,6 @@
 from django.contrib import admin
 from intros.models import Intro
+from django.conf import settings
 
 class IntroAdmin(admin.ModelAdmin):
     list_display = ('get_subpage_title', 'created_at', 'updated_at')
