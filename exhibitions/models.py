@@ -1,5 +1,6 @@
 from django.db import models
 from autoslug import AutoSlugField
+from django.conf import settings
 
 
 class Exhibition(models.Model):
@@ -10,7 +11,7 @@ class Exhibition(models.Model):
     slug = AutoSlugField(populate_from='title', slugify=lambda value: value.replace(' ','-'))
 
     place = models.CharField(max_length=255)
-    extra_description = models.TextField()
+    extra_description = models.TextField(blank=True, null=True)
 
     from_date = models.DateField()
     to_date = models.DateField()
