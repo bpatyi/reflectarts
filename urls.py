@@ -18,4 +18,5 @@ urlpatterns = patterns('',
     url(r'^', include('core.urls')),
     url(r'^', include('contact.urls')),
     url(r'^', include('artists.urls')),
+    url(r'^', include('exhibitions.urls')),
 )
