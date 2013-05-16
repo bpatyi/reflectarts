@@ -2,7 +2,7 @@ from django.db import models
 from subpages.models import Subpage
 
 class Intro(models.Model):
-    subpage = models.ForeignKey('Subpage', unique=True)
+    subpage = models.ForeignKey(Subpage, unique=True)
     content = models.TextField()
 
     created_at = models.DateTimeField(auto_now_add=True, editable=False, verbose_name=u'crated at')
