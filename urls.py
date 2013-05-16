@@ -1,6 +1,8 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib.flatpages.views import flatpage
 
+from core.views import Services
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -16,7 +18,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^services/', flatpage, {'url': '/services/'}, name='services'),
+    url(r'^services/', Services.as_view(), name='services'),
 
     url(r'^', include('core.urls')),
     url(r'^', include('contact.urls')),
