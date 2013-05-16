@@ -1,4 +1,4 @@
-from django.views.generic.edit import FormView, View
+from django.views.generic import View
 from django.template.response import TemplateResponse, HttpResponse
 
 
