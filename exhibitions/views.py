@@ -2,7 +2,7 @@ from django.views.generic import View, ListView, DetailView
 from django.template.response import TemplateResponse, HttpResponse
 
 from exhibitions.models import Exhibition
-
+from utils.tools import getIntro
 
 class ExhibitionList(ListView):
     context_object_name = "exhibition_list"
@@ -14,7 +14,10 @@ class ExhibitionList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ExhibitionList, self).get_context_data(**kwargs)
+
+        context['intro'] = getIntro(2)
         return context
+
 
 class ExhibitionDetail(DetailView):
     model = Exhibition
@@ -24,6 +27,7 @@ class ExhibitionDetail(DetailView):
     def __init__(self, *args, **kwargs):
         super(ArtistDetail, self).__init__(*args, **kwargs)
         self.pictures = None
+        self.intro = None
 
     def get_queryset(self):
         qs = super(ArtistDetail, self).get_queryset()
@@ -40,5 +44,6 @@ class ExhibitionDetail(DetailView):
         self.pictures = self.object.pictures_set.all()
 
         context['pictures'] = self.pictures
+        context['intro'] = getIntro(2)
 
         return context
