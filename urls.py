@@ -16,4 +16,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^', include('core.urls')),
+    url(r'^', include('contact.urls')),
+    url(r'^', include('artists.urls')),
 )
