@@ -7,4 +7,8 @@ class PictureAdmin(admin.ModelAdmin):
     def get_exhibition_title(self, obj):
         return '%s' % (obj.exhibition.title)
 
+    class Media:
+        js = (settings.STATIC_URL + 'js/tiny_mce/tiny_mce.js',
+            settings.STATIC_URL + 'js/textareas.js',)
+
 admin.site.register(Picture, PictureAdmin)

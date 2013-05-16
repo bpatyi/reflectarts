@@ -7,4 +7,8 @@ class IntroAdmin(admin.ModelAdmin):
     def get_subpage_title(self, obj):
         return '%s' % (obj.subpage.title)
 
+    class Media:
+        js = (settings.STATIC_URL + 'js/tiny_mce/tiny_mce.js',
+            settings.STATIC_URL + 'js/textareas.js',)
+
 admin.site.register(Intro, IntroAdmin)
