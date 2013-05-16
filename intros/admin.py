@@ -6,7 +6,7 @@ class IntroAdmin(admin.ModelAdmin):
     list_display = ('get_subpage_title', 'created_at', 'updated_at')
 
     def get_subpage_title(self, obj):
-        return '%s' % (obj.subpage.title)
+        return '%s' % (obj.subpage.name)
 
     class Media:
         js = (settings.STATIC_URL + 'js/tiny_mce/tiny_mce.js',
