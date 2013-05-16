@@ -1,6 +1,4 @@
-from intro.models import Intro
-from newsletter.models import NewsLetter
-
+from intros.models import Intro
 
 def getIntro(subpageId):
     try:
