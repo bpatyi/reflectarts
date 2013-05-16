@@ -3,7 +3,7 @@ from autoslug import AutoSlugField
 
 
 class Artist(models.Model):
-    title = models.CharField(max_length=128, verbose_name=u'title',)
+    title = models.CharField(max_length=128, verbose_name=u'title', unique=True,)
     description = models.TextField(verbose_name=u'description',)
     slug = AutoSlugField(populate_from='title', slugify=lambda value: value.replace(' ','-'))
 
