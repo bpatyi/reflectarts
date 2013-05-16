@@ -23,6 +23,7 @@ class ExhibitionDetail(DetailView):
 
     def __init__(self, *args, **kwargs):
         super(ArtistDetail, self).__init__(*args, **kwargs)
+        self.pictures = None
 
     def get_queryset(self):
         qs = super(ArtistDetail, self).get_queryset()
@@ -35,5 +36,9 @@ class ExhibitionDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ApplicationDetail, self).get_context_data(**kwargs)
+
+        self.pictures = self.object.pictures_set.all()
+
+        context['pictures'] = self.pictures
 
         return context
