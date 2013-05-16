@@ -35,3 +35,6 @@ pip-log.txt
 
 # dev db
 db
+
+#ignore south migrations folder
+migrations/
