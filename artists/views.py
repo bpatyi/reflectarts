@@ -2,6 +2,9 @@ from django.views.generic import View, ListView, DetailView
 from django.template.response import TemplateResponse, HttpResponse
 from artists.models import Artist
 
+from utils.tools import getIntro
+
+
 class ArtistList(ListView):
     context_object_name = "artist_list"
     template_name = "artist_list.html"
@@ -11,6 +14,8 @@ class ArtistList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ArtistList, self).get_context_data(**kwargs)
+
+        context['intro'] = getIntro(3)
         return context
 
 
@@ -21,6 +26,7 @@ class ArtistDetail(DetailView):
 
     def __init__(self, *args, **kwargs):
         super(ArtistDetail, self).__init__(*args, **kwargs)
+        self.intro = None
 
 
     def get_queryset(self):
@@ -35,5 +41,6 @@ class ArtistDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ApplicationDetail, self).get_context_data(**kwargs)
 
+        context['intro'] = getIntro(3)
         return context
 
