@@ -1,7 +1,7 @@
 from django.views.generic import View, ListView, DetailView
 from django.template.response import TemplateResponse, HttpResponse
 
-from exhibition.models import Exhibition, ExhibitionDesciptor
+from exhibitions.models import Exhibition
 
 
 class ExhibitionList(ListView):
@@ -10,7 +10,7 @@ class ExhibitionList(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return Exhibiton.objects.all().order_by('-exhibitiondescriptor__from_date')
+        return Exhibition.objects.all().order_by('-exhibitiondescriptor__from_date')
 
     def get_context_data(self, **kwargs):
         context = super(ExhibitionList, self).get_context_data(**kwargs)
@@ -35,7 +35,7 @@ class ExhibitionDetail(DetailView):
 
 
     def get_context_data(self, **kwargs):
-        context = super(ApplicationDetail, self).get_context_data(**kwargs)
+        context = super(ExhibtionDetail, self).get_context_data(**kwargs)
 
         self.pictures = self.object.pictures_set.all()
 
