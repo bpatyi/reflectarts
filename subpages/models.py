@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Subpage(models.Model):
     name = models.CharField(max_length=80)
     content = models.TextField(blank=True, null=True)
