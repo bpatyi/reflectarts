@@ -138,7 +138,6 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     'south',
-    'tinymce',
     'easy_thumbnails',
 
     'artists',
