@@ -16,7 +16,7 @@ class ArtistList(ListView):
 
 class ArtistDetail(DetailView):
     model = Artist
-    template_name = 'artist_list.html'
+    template_name = 'artist_detail.html'
     queryset = Artist.objects.all()
 
     def __init__(self, *args, **kwargs):
