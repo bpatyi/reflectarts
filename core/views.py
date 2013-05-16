@@ -1,12 +1,34 @@
 from django.views.generic import View
+from django.contrib.flatpages.models import FlatPage
 from django.template.response import TemplateResponse, HttpResponse
+from utils.tools import getIntro
 
 
 class Index(View):
-    template = 'base.html'
+    template = 'index.html'
     http_method_names = ['get', ]
 
     def get(self, request, *args, **kwargs):
-        context = {}
+        intro = getIntro(1)
+
+        context = {
+            'intro': intro,
+        }
+
+        return TemplateResponse(request, self.template, context)
+
+
+class Services(View):
+    template = 'service.html'
+    http_method_names = ['get',]
+
+    def get(self, request, *args, **kwargs):
+        flatpage = FlatPage.objects.get(title='Services')
+        intro = getIntro(4)
+
+        context = {
+            'flatpage': flatpage,
+            'intro': intro,
+        }
 
         return TemplateResponse(request, self.template, context)
