@@ -25,6 +25,9 @@ class ArtistDetail(DetailView):
 
     def get_queryset(self):
         qs = super(ArtistDetail, self).get_queryset()
+        slug = self.kwargs.get('slug', None)
+
+        qs = Artist.object.get(slug=slug)
 
         return qs
 
