@@ -41,19 +41,19 @@
                     <div class="span8">
                         <ul class="nav nav-pills">
                             <li class="active">
-                                <a href="#">Home</a>
+                                <a href="{% url index %}">Home</a>
                             </li>
                             <li>
-                                <a href="#">Exhibitions</a>
+                                <a href="{% url exhibitions %}">Exhibitions</a>
                             </li>
                             <li>
-                                <a href="#">Artists</a>
+                                <a href="{% url artists %}">Artists</a>
                             </li>
                             <li>
-                                <a href="#">Services</a>
+                                <a href="{% url services %}">Services</a>
                             </li>
                             <li>
-                                <a href="#">Contact</a>
+                                <a href="{% url contact %}">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -63,7 +63,9 @@
 
         </header><!-- header -->
 
-        <div id="content-wrapper"></div><!-- content-wrapper -->
+        <div id="content-wrapper">
+            {% block content %}{% endblock %}
+        </div><!-- content-wrapper -->
 
         <footer id="footer"></footer><!-- footer -->
 
