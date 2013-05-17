@@ -8,7 +8,7 @@
 
 {% block content %}
 
-{{ flatpage.title }}
-{{ flatpage.content }}
+    <h3>{{ flatpage.title }}</h3>
+    <p>{{ flatpage.content|safe }}</p>
 
 {% endblock %}
