@@ -13,6 +13,7 @@
     <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet">
 
+    {% block extra_css %}{% endblock %}
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -32,8 +33,10 @@
 
     <div class="container">
 
+        {% block header-wrapper %}
         <header id="header">
 
+            {% block header %}
             <div class="page-header">
                 <div class="row">
                     <div class="span4">
@@ -61,17 +64,79 @@
                 </div>
 
             </div>
+            {% endblock header %}
 
         </header><!-- header -->
+        {% endblock header-wrapper %}
 
-        <div id="content-wrapper">
+        {% block content-wrapper %}
+        <div id="content-wrapper" class="row clearfix">
+            {% block sidebar-wrapper %}
+            <div class="span4">
 
-            {{ newsletter }}
+                {% block sidebar %}
+                    {% block intros-outer %}
+                        <div class="clearfix">
+                            {% block intros %}{% endblock %}
+                        </div>
+                        <hr class="hr-dotted">
+                    {% endblock %}
 
-            {% block content %}{% endblock %}
+                    {% block newsletter %}
+                        <div class="clearfix">
+
+                            <ul class="unstyled">
+                            {% for newletter in newsletter %}
+                                <li>
+                                    <a href="{{ newletter.url }}">{{ newletter.title }}</a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+
+                        </div>
+                    {% endblock %}
+                {% endblock %}
+
+            </div>
+            {% endblock sidebar-wrapper %}
+
+            {% block content-outer %}
+            <div class="span8">
+
+                {% block content %}{% endblock content %}
+
+            </div>
+            {% endblock content-outer %}
         </div><!-- content-wrapper -->
+        {% endblock content-wrapper %}
 
-        <footer id="footer"></footer><!-- footer -->
+        {% block footer-wrapper %}
+        <footer id="footer" class="clearfix">
+
+            {% block footer %}
+            <div id="footer-content" class="row">
+
+                <div class="span4">
+                    &copy; {% now "Y" %}. Reflect Arts. All rights reserved.
+                </div>
+                <div class="span8">
+                    <ul class="inline">
+                        <li>
+                            <a href="{% url services %}">Services</a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/reflectarts">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/reflectarts">Twitter</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {% endblock %}
+
+        </footer><!-- footer -->
+        {% endblock footer-wrapper %}
 
     </div><!-- container -->
 

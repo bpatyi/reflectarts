@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
-{% block content %}
-
-    {{ intro }}
-
+{% block intros %}
+    <p>{{ intro|safe }}</p>
 {% endblock %}
+
+{% block content %}{% endblock %}

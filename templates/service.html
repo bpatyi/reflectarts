@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
+{% block intros %}
+    <p>{{ intro|safe }}</p>
+{% endblock %}
+
 {% block content %}
 
 {{ flatpage.title }}
 {{ flatpage.content }}
-
-{{ intro }}
 
 {% endblock %}
