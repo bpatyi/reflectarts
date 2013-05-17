@@ -26,6 +26,10 @@ body{
     background-color: #FFF;
 }
 
+a{
+    color: #00aaea;
+}
+
 /* === 2. HEADER === */
 
 .page-header{
@@ -64,8 +68,49 @@ body{
 }
 
 /* === 3. SIDEBAR === */
+.intros-outer{
+    min-height: 180px;
+    p{
+        font-size: 18px;
+    }
+}
+
+#newsletter-list{
+    li{
+        margin-bottom: 10px;
+    }
+    li > a{
+        font-weight: bold;
+        &:hover{
+            color: #333;
+            text-decoration: none;
+        }
+    }
+}
+
 /* === 4. CONTENT === */
 /* === 5. FOOTER === */
+#footer{
+    background-color: #eee;
+    padding: 10px 0;
+
+    a{
+        color: #666;
+        &:hover{
+            color: #000;
+            text-decoration: none;
+        }
+    }
+
+    #copyright-wrapper{
+        color: #999;
+    }
+
+    #copyright{
+        margin-left: 10px;
+    }
+}
+
 /* === 6. ETC. === */
 .hr-dotted{
     margin: 20px 0;

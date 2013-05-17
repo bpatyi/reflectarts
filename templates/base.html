@@ -76,7 +76,7 @@
 
                 {% block sidebar %}
                     {% block intros-outer %}
-                        <div class="clearfix">
+                        <div class="clearfix intros-outer">
                             {% block intros %}{% endblock %}
                         </div>
                         <hr class="hr-dotted">
@@ -85,7 +85,9 @@
                     {% block newsletter %}
                         <div class="clearfix">
 
-                            <ul class="unstyled">
+                            <h3>Past Newsletters</h3>
+
+                            <ul class="unstyled" id="newsletter-list">
                             {% for newletter in newsletter %}
                                 <li>
                                     <a href="{{ newletter.url }}">{{ newletter.title }}</a>
@@ -116,10 +118,10 @@
             {% block footer %}
             <div id="footer-content" class="row">
 
-                <div class="span4">
-                    &copy; {% now "Y" %}. Reflect Arts. All rights reserved.
+                <div class="span3" id="copyright-wrapper">
+                    <span id="copyright">&copy; {% now "Y" %}. Reflect Arts. All rights reserved.</span>
                 </div>
-                <div class="span8">
+                <div class="span9">
                     <ul class="inline">
                         <li>
                             <a href="{% url services %}">Services</a>

@@ -11,6 +11,9 @@
 body {
   background-color: #FFF;
 }
+a {
+  color: #00aaea;
+}
 /* === 2. HEADER === */
 .page-header {
   border-bottom: 1px dotted #eee;
@@ -48,8 +51,41 @@ body {
   background-color: #24b8f0;
 }
 /* === 3. SIDEBAR === */
+.intros-outer {
+  min-height: 180px;
+}
+.intros-outer p {
+  font-size: 18px;
+}
+#newsletter-list li {
+  margin-bottom: 10px;
+}
+#newsletter-list li > a {
+  font-weight: bold;
+}
+#newsletter-list li > a:hover {
+  color: #333;
+  text-decoration: none;
+}
 /* === 4. CONTENT === */
 /* === 5. FOOTER === */
+#footer {
+  background-color: #eee;
+  padding: 10px 0;
+}
+#footer a {
+  color: #666;
+}
+#footer a:hover {
+  color: #000;
+  text-decoration: none;
+}
+#footer #copyright-wrapper {
+  color: #999;
+}
+#footer #copyright {
+  margin-left: 10px;
+}
 /* === 6. ETC. === */
 .hr-dotted {
   margin: 20px 0;
