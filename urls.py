@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib.flatpages.views import flatpage
 from filebrowser.sites import site
+from django.conf import settings
 
 from core.views import Services
 
@@ -29,3 +30,11 @@ urlpatterns = patterns('',
     url(r'^', include('artists.urls')),
     url(r'^', include('exhibitions.urls')),
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^%s/(?P<path>.*)$' % settings.STATIC_URL.strip('/'), "django.views.static.serve", {"document_root": settings.STATIC_ROOT}),
+    )
+    urlpatterns += patterns('',
+        url(r'^%s/(?P<path>.*)$' % settings.MEDIA_URL.strip('/'), "django.views.static.serve", {"document_root": settings.MEDIA_ROOT}),
+    )

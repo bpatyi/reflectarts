@@ -2,8 +2,22 @@ from django.contrib import admin
 from artists.models import Artist
 from django.conf import settings
 
+from easy_thumbnails.files import get_thumbnailer
+
+
 class ArtistAdmin(admin.ModelAdmin):
-    list_display = ('title', 'website_url', 'created_at', 'updated_at')
+    list_display = ('title', 'image_thumbnail', 'website_url', 'created_at', 'updated_at')
+
+    def image_thumbnail(self, obj):
+        thumb_url = get_thumbnailer(obj.image)['avatar'].url
+
+        if obj.image and thumb_url:
+            return '<img src="%s" />' % thumb_url
+        else:
+            return ""
+
+    image_thumbnail.allow_tags = True
+    image_thumbnail.short_description = "Thumbnail"
 
     class Media:
         js = (
