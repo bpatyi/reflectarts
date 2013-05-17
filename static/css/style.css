@@ -1,0 +1,26 @@
+/* Reflect Arts style.less */
+/*
+    1. BODY
+    2. HEADER
+    3. SIDEBAR
+    4. CONTENT
+    5. FOOTER
+    6. ETC.
+*/
+/* === 1. BODY === */
+body {
+  background-color: #FFF;
+}
+/* === 2. HEADER === */
+.page-header {
+  border-bottom: 1px dotted #eee;
+}
+/* === 3. SIDEBAR === */
+/* === 4. CONTENT === */
+/* === 5. FOOTER === */
+/* === 6. ETC. === */
+.hr-dotted {
+  margin: 20px 0;
+  border: 0;
+  border-bottom: 1px dotted #eee;
+}
