@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     'south',
     'easy_thumbnails',
 
+    'core',
     'artists',
     'contact',
     'exhibitions',
