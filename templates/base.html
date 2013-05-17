@@ -1,3 +1,4 @@
+{% load tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,19 +41,19 @@
                     </div>
                     <div class="span8">
                         <ul class="nav nav-pills">
-                            <li class="active">
+                            <li class="{% active request "^/$" %}">
                                 <a href="{% url index %}">Home</a>
                             </li>
-                            <li>
+                            <li class="{% active request '^/exhibitions/' %}">
                                 <a href="{% url exhibitions %}">Exhibitions</a>
                             </li>
-                            <li>
+                            <li class="{% active request '^/artists/' %}">
                                 <a href="{% url artists %}">Artists</a>
                             </li>
-                            <li>
+                            <li class="{% active request '^/services/' %}">
                                 <a href="{% url services %}">Services</a>
                             </li>
-                            <li>
+                            <li class="{% active request '^/contact/' %}">
                                 <a href="{% url contact %}">Contact</a>
                             </li>
                         </ul>
