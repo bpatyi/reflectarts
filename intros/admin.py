@@ -9,7 +9,9 @@ class IntroAdmin(admin.ModelAdmin):
         return '%s' % (obj.subpage.name)
 
     class Media:
-        js = (settings.STATIC_URL + 'js/tiny_mce/tiny_mce.js',
-            settings.STATIC_URL + 'js/textareas.js',)
+        js = (
+            '/static/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js',
+            '/static/grappelli/tinymce_setup/tinymce_setup.js',
+        )
 
 admin.site.register(Intro, IntroAdmin)
