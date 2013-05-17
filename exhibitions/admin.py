@@ -4,7 +4,7 @@ from pictures.models import Picture
 from django.conf import settings
 
 
-class PictureInline(admin.TabularInline):
+class PictureInline(admin.StackedInline):
     model = Picture
 
 class ExhibitionAdmin(admin.ModelAdmin):

@@ -4,7 +4,7 @@ from intros.models import Intro
 from django.conf import settings
 
 
-class IntroInline(admin.TabularInline):
+class IntroInline(admin.StackedInline):
     model = Intro
 
 
