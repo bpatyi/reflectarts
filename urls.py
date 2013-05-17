@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib.flatpages.views import flatpage
+from filebrowser.sites import site
 
 from core.views import Services
 
@@ -19,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^grappelli/', include('grappelli.urls')),
+    url(r'^admin/filebrowser/', include(site.urls)),
 
     url(r'^services/', Services.as_view(), name='services'),
 

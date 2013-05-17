@@ -134,8 +134,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
 
-    # grappelli
+    # grappelli && filebrowser
     'grappelli',
+    'filebrowser',
 
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
@@ -185,21 +186,68 @@ THUMBNAIL_ALIASES = {
     },
 }
 
-# Tinymce config
+# GRAPELLI config
 
-TINYMCE_JS_URL = os.path.join(STATIC_ROOT, "tiny_mce/tiny_mce.js")
-TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, "/tiny_mce")
+ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
+
+GRAPPELLI_ADMIN_TITLE = 'Reflect Arts'
+
+
+#TINYMCE config
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': "table,spellchecker,paste,searchreplace",
     'theme': "advanced",
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
 }
+
 TINYMCE_SPELLCHECKER = True
 TINYMCE_COMPRESSOR = True
 
-# GRAPELLI config
+TINYMCE_FILEBROWSER = True
 
-ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 
-GRAPPELLI_ADMIN_TITLE = 'Reflect Arts'
+#FILEBROWSER config
+FILEBROWSER_MEDIA_ROOT = getattr(settings, "FILEBROWSER_MEDIA_ROOT", settings.MEDIA_ROOT)
+
+FILEBROWSER_MEDIA_URL = getattr(settings, "FILEBROWSER_MEDIA_URL", settings.MEDIA_URL)
+
+FILEBROWSER_DIRECTORY = getattr(settings, "FILEBROWSER_DIRECTORY", 'uploads/')
+
+URL_FILEBROWSER_MEDIA = getattr(settings, "FILEBROWSER_URL_FILEBROWSER_MEDIA", settings.STATIC_URL + "filebrowser/")
+PATH_FILEBROWSER_MEDIA = getattr(settings, "FILEBROWSER_PATH_FILEBROWSER_MEDIA", os.path.join(settings.STATIC_ROOT, 'filebrowser/'))
+
+URL_TINYMCE = getattr(settings, "FILEBROWSER_URL_TINYMCE", settings.ADMIN_MEDIA_PREFIX + "tinymce/jscripts/tiny_mce/")
+PATH_TINYMCE = getattr(settings, "FILEBROWSER_PATH_TINYMCE", settings.ADMIN_MEDIA_PREFIX + "tinymce/jscripts/tiny_mce/")
+
+EXTENSIONS = getattr(settings, "FILEBROWSER_EXTENSIONS", {
+    'Folder': [''],
+    'Image': ['.jpg','.jpeg','.gif','.png','.tif','.tiff'],
+    'Document': ['.pdf','.doc','.rtf','.txt','.xls','.csv'],
+    'Video': ['.mov','.wmv','.mpeg','.mpg','.avi','.rm'],
+    'Audio': ['.mp3','.mp4','.wav','.aiff','.midi','.m4p']
+})
+
+SELECT_FORMATS = getattr(settings, "FILEBROWSER_SELECT_FORMATS", {
+    'file': ['Folder','Image','Document','Video','Audio'],
+    'image': ['Image'],
+    'document': ['Document'],
+    'media': ['Video','Audio'],
+})
+
+VERSIONS = getattr(settings, "FILEBROWSER_VERSIONS", {
+    'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
+    'thumbnail': {'verbose_name': 'Thumbnail (1 col)', 'width': 60, 'height': 60, 'opts': 'crop'},
+    'small': {'verbose_name': 'Small (2 col)', 'width': 140, 'height': '', 'opts': ''},
+    'medium': {'verbose_name': 'Medium (4col )', 'width': 300, 'height': '', 'opts': ''},
+    'big': {'verbose_name': 'Big (6 col)', 'width': 460, 'height': '', 'opts': ''},
+    'large': {'verbose_name': 'Large (8 col)', 'width': 680, 'height': '', 'opts': ''},
+})
+
+ADMIN_VERSIONS = getattr(settings, 'FILEBROWSER_ADMIN_VERSIONS', ['thumbnail', 'small', 'medium', 'big', 'large'])
+
+ADMIN_THUMBNAIL = getattr(settings, 'FILEBROWSER_ADMIN_THUMBNAIL', 'admin_thumbnail')
+
+PLACEHOLDER = getattr(settings, "FILEBROWSER_PLACEHOLDER", "")
+SHOW_PLACEHOLDER = getattr(settings, "FILEBROWSER_SHOW_PLACEHOLDER", False)
+FORCE_PLACEHOLDER = getattr(settings, "FILEBROWSER_FORCE_PLACEHOLDER", False)
