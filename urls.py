@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 
+    url(r'^grappelli/', include('grappelli.urls')),
+
     url(r'^services/', Services.as_view(), name='services'),
 
     url(r'^', include('core.urls')),
