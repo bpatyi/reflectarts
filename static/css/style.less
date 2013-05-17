@@ -11,6 +11,16 @@
 
 //  VARIABLES
 
+// FUNCTIONS
+.rounded-corners (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+
+
 /* === 1. BODY === */
 body{
     background-color: #FFF;
@@ -22,6 +32,36 @@ body{
     border-bottom: 1px dotted #eee;
 }
 
+.nav{
+    margin-bottom: 0px;
+    margin-top: 20px;
+
+    li{
+        margin-right: 10px;
+    }
+
+    li > a {
+        display:block;
+    }
+}
+
+.nav-pills > li > a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #FFF;
+    background-color: #333;
+    .rounded-corners(0px);
+    &:hover{
+        background-color: #24b8f0;
+    }
+}
+
+.nav-pills > .active > a, .nav-pills > .active > a:hover, .nav-pills > .active > a:focus {
+    color: #ffffff;
+    background-color: #24b8f0;
+}
 
 /* === 3. SIDEBAR === */
 /* === 4. CONTENT === */
