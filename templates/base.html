@@ -83,7 +83,7 @@
                     {% endblock %}
 
                     {% block newsletter %}
-                        <div class="clearfix">
+                        <div class="clearfix" id="newsletter-wrapper">
 
                             <h3>Past Newsletters</h3>
 
@@ -95,7 +95,7 @@
                             {% endfor %}
                             </ul>
 
-                            <span class="pull-right"><a href="{% url newsletters %}">more newsletters</a></span>
+                            <span class="pull-right"><a href="{% url newsletters %}" class="more-link">more newsletters</a></span>
 
                         </div>
                     {% endblock %}
