@@ -29,6 +29,7 @@ urlpatterns = patterns('',
     url(r'^', include('contact.urls')),
     url(r'^', include('artists.urls')),
     url(r'^', include('exhibitions.urls')),
+    url(r'^', include('newsletter.urls')),
 )
 
 if settings.DEBUG:
