@@ -1,5 +1,6 @@
-from django.views.generic import View
+from django.views.generic.base import View
 from django.template.response import TemplateResponse, HttpResponse
+from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -16,7 +17,6 @@ class ContactView(View):
 
     def get(self, request, *args, **kwargs):
         contact_information = Contact.objects.all()[0]
-        print Contact
         form = self.form()
 
         context = {
@@ -27,12 +27,13 @@ class ContactView(View):
 
         return TemplateResponse(request, self.template, context)
 
-def post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         contact_information = Contact.objects.all()[0]
         form = self.form(request.POST)
         valid = form.is_valid()
 
         error_messages = ''
+        success_messages = ''
 
         if valid:
             cleaned_data = form.cleaned_data
@@ -44,17 +45,19 @@ def post(self, request, *args, **kwargs):
 
             if subject and message and from_email:
                 try:
-                    send_mail(subject, message, from_email, [settings.REFLECT_NOTIFY_EMAIL])
+                    send_mail(subject, message, from_email, ['19noname19@gmail.com'])
+                    success_messages = 'Thanks your email.'
                 except BadHeaderError:
                     error_messages = 'Invalid header found.'
-                return HttpResponseRedirect('/contact/thanks/')
             else:
                 error_messages = 'Make sure all fields are entered and valid.'
 
         context = {
             'contact_information': contact_information,
             'contact_form': form,
-            'error_message': error_message,
+            'error_messages': error_messages,
+            'success_messages': success_messages,
+            'intro': self.intro,
         }
 
         return TemplateResponse(request, self.template, context)
