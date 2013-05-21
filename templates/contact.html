@@ -10,4 +10,17 @@
 
     <h3>Contact Us</h3>
 
+    <address>
+        {% if contact_information.name %}
+            <strong>{{ contact_information.name }}</strong><br>
+        {% endif %}
+        {% if contact_information.email %}
+            {{ contact_information.email }}<br>
+        {% endif %}
+        {% if contact_information.phone %}
+            {{ contact_information.phone }}<br>
+        {% endif %}
+
+    </address>
+
 {% endblock %}
