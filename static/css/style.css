@@ -57,6 +57,9 @@ a {
 .intros-outer p {
   font-size: 18px;
 }
+#newsletter-wrapper {
+  margin-bottom: 40px;
+}
 #newsletter-list li {
   margin-bottom: 10px;
 }
@@ -66,6 +69,11 @@ a {
 #newsletter-list li > a:hover {
   color: #333;
   text-decoration: none;
+}
+.more-link {
+  font-style: italic;
+  font-weight: bold;
+  margin: 0 20px;
 }
 /* === 4. CONTENT === */
 /* === 5. FOOTER === */
