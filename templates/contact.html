@@ -10,6 +10,8 @@
 
     <h3>Contact Us</h3>
 
+    <p>If you would like to be on mailing list to be informed of upcoming exhibition opportunities, please e-mail us at one of our addresses: </p>
+
     <address>
         {% if contact_information.name %}
             <strong>{{ contact_information.name }}</strong><br>
@@ -20,7 +22,60 @@
         {% if contact_information.phone %}
             {{ contact_information.phone }}<br>
         {% endif %}
-
     </address>
+
+    {% if contact_information.description %}
+        <p> {{ contact_information.description }}</p>
+    {% endif %}
+
+    <h3>Or fill in the below form:</h3>
+
+    {% if error_messages %}
+        <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <ul class="unstyled">
+                {{ error_messages }}
+            </ul>
+        </div>
+    {% else %}{% if success_messages %}
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <ul class="unstyled">
+                {{ success_messages }}
+            </ul>
+        </div>
+    {% endif %}
+    {% endif %}
+
+    <form class="form-horizontal" action="{% url contact %}" method="POST">{% csrf_token %}
+        <div class="control-group {% if contact_form.name.errors %}error{% endif %}">
+            <label class="control-label" for="inputEmail">{{ contact_form.name.label }}</label>
+            <div class="controls">
+                {{ contact_form.name }}
+                <span class="help-inline">{{ contact_form.name.errors }}</span>
+            </div>
+        </div>
+        <div class="control-group {% if contact_form.email.errors %}error{% endif %}">
+            <label class="control-label" for="inputEmail">{{ contact_form.email.label }}</label>
+            <div class="controls">
+                {{ contact_form.email }}
+                <span class="help-inline">{{ contact_form.email.errors }}</span>
+            </div>
+        </div>
+        <div class="control-group {% if contact_form.comment.errors %}error{% endif %}">
+            <label class="control-label" for="inputEmail">{{ contact_form.comment.label }}</label>
+            <div class="controls">
+                {{ contact_form.comment }}
+                <span class="help-inline">{{ contact_form.comment.errors }}</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" class="btn" value="Send"/>
+            </div>
+        </div>
+    </form>
+
+
 
 {% endblock %}
