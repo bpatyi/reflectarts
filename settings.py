@@ -254,3 +254,14 @@ ADMIN_THUMBNAIL = getattr(settings, 'FILEBROWSER_ADMIN_THUMBNAIL', 'admin_thumbn
 PLACEHOLDER = getattr(settings, "FILEBROWSER_PLACEHOLDER", "")
 SHOW_PLACEHOLDER = getattr(settings, "FILEBROWSER_SHOW_PLACEHOLDER", False)
 FORCE_PLACEHOLDER = getattr(settings, "FILEBROWSER_FORCE_PLACEHOLDER", False)
+
+# emails
+
+REFLECT_NOTIFY_EMAIL = 'info@reflectarts.com'
+
+EMAIL_PORT = 25
+EMAIL_HOST = '188.40.190.110'
+EMAIL_HOST_USER = 'rop.post'
+EMAIL_HOST_PASSWORD = 'riprop'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
