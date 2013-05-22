@@ -3,6 +3,8 @@ from django.contrib.flatpages.models import FlatPage
 from django.template.response import TemplateResponse, HttpResponse
 from utils.tools import getIntro
 
+from artists.models import Artist
+
 
 class Index(View):
     template = 'index.html'
@@ -11,8 +13,11 @@ class Index(View):
     def get(self, request, *args, **kwargs):
         intro = getIntro(1)
 
+        selected_artists = Artist.objects.filter(selected=True).order_by('-created_at')
+
         context = {
             'intro': intro,
+            'selected_artists': selected_artists,
         }
 
         return TemplateResponse(request, self.template, context)
