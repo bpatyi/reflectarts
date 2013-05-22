@@ -1,12 +1,15 @@
 from django.db import models
 from easy_thumbnails.fields import ThumbnailerImageField
 from autoslug import AutoSlugField
+from django.conf import settings
 
 
 class Artist(models.Model):
-    title = models.CharField(max_length=128, verbose_name=u'title', unique=True,)
-    description = models.TextField(verbose_name=u'description',)
-    slug = AutoSlugField(populate_from='title', slugify=lambda value: value.replace(' ','-'))
+    first_name = models.CharField(max_length=128, verbose_name=u'first name', unique=True,)
+    last_name = models.CharField(max_length=128, verbose_name=u'last name',)
+    email = models.EmailField(default=settings.REFLECT_NOTIFY_EMAIL)
+    description = models.TextField(verbose_name=u'description', blank=True, null=True)
+    slug = AutoSlugField(populate_from='get_name', slugify=lambda value: value.replace(' ','-'))
     website_url = models.URLField(null=True, blank=True,)
 
     image = ThumbnailerImageField(upload_to='artists', blank=True)
@@ -15,4 +18,7 @@ class Artist(models.Model):
     updated_at = models.DateTimeField(auto_now=True, editable=False, verbose_name=u'updated at')
 
     def __unicode__(self):
-        return u'%s' % self.title
+        return u'%s %s' % (self.first_name, self.last_name)
+
+    def get_name(self):
+        return u'%s %s' % (self.first_name, self.last_name)

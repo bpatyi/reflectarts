@@ -6,7 +6,7 @@ from easy_thumbnails.files import get_thumbnailer
 
 
 class ArtistAdmin(admin.ModelAdmin):
-    list_display = ('title', 'image_thumbnail', 'website_url', 'created_at', 'updated_at')
+    list_display = ('first_name', 'last_name', 'email', 'website_url', 'created_at', 'updated_at')
 
     def image_thumbnail(self, obj):
         thumb_url = get_thumbnailer(obj.image)['avatar'].url
