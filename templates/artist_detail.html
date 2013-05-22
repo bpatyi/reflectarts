@@ -1,1 +1,22 @@
 {% extends 'base.html' %}
+
+{% block intros %}
+    <p>{{ intro|safe }}</p>
+{% endblock %}
+
+{% block content %}
+
+    <h3>{{ artist.get_name }}</h3>
+
+    <address>
+        <strong>{{ artist.email }}</strong> <br>
+        <a href="{{ artist.website_url}}"> website link </a>
+    </address>
+
+    {% if artist.description %}
+    <p>
+        {{ artist.description|safe }}
+    </p>
+    {% endif %}
+
+{% endblock %}
