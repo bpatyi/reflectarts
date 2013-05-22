@@ -11,7 +11,7 @@ class Exhibition(models.Model):
     slug = AutoSlugField(populate_from='title', slugify=lambda value: value.replace(' ','-'))
 
     place = models.CharField(max_length=255)
-    extra_description = models.TextField(blank=True, null=True)
+    extra_description = models.TextField(blank=True, null=True, default='')
 
     from_date = models.DateField()
     to_date = models.DateField()
