@@ -10,4 +10,21 @@
 
     <h3>Reflect-arts Selected Exhibitions</h3>
 
+    <div class="row">
+
+        <div class="span4">
+
+        </div><!-- span4 -->
+
+        <div class="span4">
+            <h4>Represented artists</h4>
+            <ul class="unstyled reflect-list-style">
+            {% for artist in selected_artists %}
+                <li><a href="{% url artist slug=artist.slug %}">{{ artist.get_name }}</a></li>
+            {% endfor %}
+            </ul>
+        </div><!-- span4 -->
+
+    </div><!-- row -->
+
 {% endblock %}
