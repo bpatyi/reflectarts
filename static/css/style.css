@@ -44,9 +44,7 @@ a {
 .nav-pills > li > a:hover {
   background-color: #24b8f0;
 }
-.nav-pills > .active > a,
-.nav-pills > .active > a:hover,
-.nav-pills > .active > a:focus {
+.nav-pills > .active > a, .nav-pills > .active > a:hover, .nav-pills > .active > a:focus {
   color: #ffffff;
   background-color: #24b8f0;
 }
@@ -60,22 +58,22 @@ a {
 #newsletter-wrapper {
   margin-bottom: 40px;
 }
-#newsletter-list li {
-  margin-bottom: 10px;
-}
-#newsletter-list li > a {
-  font-weight: bold;
-}
-#newsletter-list li > a:hover {
-  color: #333;
-  text-decoration: none;
-}
 .more-link {
   font-style: italic;
   font-weight: bold;
   margin: 0 20px;
 }
 /* === 4. CONTENT === */
+.reflect-list-style li {
+  margin-bottom: 10px;
+}
+.reflect-list-style li > a {
+  font-weight: bold;
+}
+.reflect-list-style li > a:hover {
+  color: #333;
+  text-decoration: none;
+}
 /* === 5. FOOTER === */
 #footer {
   background-color: #eee;
