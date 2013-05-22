@@ -8,6 +8,7 @@ from utils.tools import getIntro
 class ArtistList(ListView):
     context_object_name = "artist_list"
     template_name = "artist_list.html"
+    paginate_by = 10
 
     def get_queryset(self):
         return Artist.objects.all()
@@ -33,13 +34,13 @@ class ArtistDetail(DetailView):
         qs = super(ArtistDetail, self).get_queryset()
         slug = self.kwargs.get('slug', None)
 
-        qs = Artist.object.get(slug=slug)
+        qs = Artist.objects.filter(slug=slug)
 
         return qs
 
 
     def get_context_data(self, **kwargs):
-        context = super(ApplicationDetail, self).get_context_data(**kwargs)
+        context = super(ArtistDetail, self).get_context_data(**kwargs)
 
         context['intro'] = getIntro(3)
         return context
