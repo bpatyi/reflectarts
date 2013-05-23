@@ -45,19 +45,19 @@
                     <div class="span8">
                         <ul class="nav nav-pills pull-right">
                             <li class="{% active request "^/$" %}">
-                                <a href="{% url index %}">Home</a>
+                                <a href="{% url index %}">home</a>
                             </li>
                             <li class="{% active request '^/exhibitions/' %}">
-                                <a href="{% url exhibitions %}">Exhibitions</a>
+                                <a href="{% url exhibitions %}">exhibitions</a>
                             </li>
                             <li class="{% active request '^/artists/' %}">
-                                <a href="{% url artists %}">Artists</a>
+                                <a href="{% url artists %}">artists</a>
                             </li>
                             <li class="{% active request '^/services/' %}">
-                                <a href="{% url services %}">Services</a>
+                                <a href="{% url services %}">services</a>
                             </li>
                             <li class="{% active request '^/contact/' %}">
-                                <a href="{% url contact %}">Contact</a>
+                                <a href="{% url contact %}">contact</a>
                             </li>
                         </ul>
                     </div>
@@ -76,7 +76,7 @@
 
                 {% block sidebar %}
                     {% block intros-outer %}
-                        <div class="clearfix intros-outer">
+                        <div class="clearfix intros-outer font-georgia">
                             {% block intros %}{% endblock %}
                         </div>
                         <hr class="hr-dotted">
@@ -87,7 +87,7 @@
 
                             <h3>Past Newsletters</h3>
 
-                            <ul class="unstyled reflect-list-style">
+                            <ul class="unstyled reflect-list-style font-goorgia-bold-italic">
                             {% for newletter in newsletter %}
                                 <li>
                                     <a href="{{ newletter.url }}">{{ newletter.title }}</a>
