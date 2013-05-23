@@ -56,10 +56,18 @@
 body{
     font-family: Helvetica, Sans-Serif, Arial;
     background-color: @body-bg;
+    color: @black;
+    background-image: url('/static/img/half_eye.png');
+    background-repeat: no-repeat;
+    background-position: left top;
 }
 
 a{
     color: @blue-light;
+    &:hover{
+        color: @gray-33;
+        text-decoration: none;
+    }
 }
 
 /* === 2. HEADER === */
@@ -70,7 +78,7 @@ a{
 
 .nav{
     margin-bottom: 0px;
-    margin-top: 20px;
+    margin-top: 30px;
 
     li{
         margin-right: 10px;
@@ -83,8 +91,8 @@ a{
 
 .nav-pills > li > a {
     font-family: 'Georgia Bold Italic', Sans-Serif;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin-top: 2px;
     margin-bottom: 2px;
     color: @white;
@@ -105,7 +113,8 @@ a{
 .intros-outer{
     min-height: 180px;
     p{
-        font-size: 18px;
+        font-size: 24px;
+        line-height: 26px;
     }
 }
 
@@ -161,7 +170,7 @@ a{
     a{
         color: @gray-66;
         &:hover{
-            color: @white;
+            color: @black;
             text-decoration: none;
         }
     }
@@ -190,3 +199,14 @@ a{
     font-family: "Georgia Bold Italic";
 }
 
+.button-gray{
+
+}
+
+.light-gray{
+    color: @gray-66;
+}
+
+.bold{
+    font-weight: bold;
+}
