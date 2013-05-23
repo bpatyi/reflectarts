@@ -186,6 +186,7 @@ LOGGING = {
 THUMBNAIL_ALIASES = {
     '': {
         'avatar': {'size': (50, 50), 'crop': True},
+        'artist_thumb': {'size': (340, 200), 'crop': True},
     },
 }
 
