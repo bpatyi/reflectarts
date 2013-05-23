@@ -95,7 +95,7 @@
                             {% endfor %}
                             </ul>
 
-                            <span class="pull-right"><a href="{% url newsletters %}" class="more-link">more newsletters</a></span>
+                            <p class="light-gray">To receive our newsletter of events and opportunities for artists, please <a href="{% url newsletters %}" class="bold">click here.</a></p>
 
                         </div>
                     {% endblock %}
@@ -120,11 +120,11 @@
             {% block footer %}
             <div id="footer-content" class="row">
 
-                <div class="span3" id="copyright-wrapper">
-                    <span id="copyright">&copy; {% now "Y" %}. Reflect Arts. All rights reserved.</span>
+                <div class="span4" id="copyright-wrapper">
+                    <span id="copyright">&copy; {% now "Y" %}. Reflect Arts.com All rights reserved.</span>
                 </div>
-                <div class="span9">
-                    <ul class="inline">
+                <div class="span8">
+                    <ul class="inline font-goorgia-bold-italic">
                         <li>
                             <a href="{% url services %}">Services</a>
                         </li>
