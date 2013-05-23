@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load thumbnail %}
+
 {% block subtitle %}| Home{% endblock %}
 
 {% block intros %}
@@ -18,13 +20,19 @@
         <div class="span4">
             <h3>Selected artists</h3>
 
-            <ul class="unstyled reflect-list-style">
+            <ul class="unstyled reflect-list-style" id="index-artists-list">
             {% for artist in selected_artists %}
-                <li><a href="{% url artist slug=artist.slug %}">{{ artist.get_name }}</a></li>
+                <li>
+                    <div class="image-wrapper">
+                        <img src="{{ artist.image|thumbnail_url:'artist_thumb' }}" />
+                        <span class="font-georgia-italic" >{{ artist.get_name }}</span>
+                        <a href="{% url artist slug=artist.slug %}" class="pull-right font-georgia-italic"> more info </a>
+                    </div>
+                </li>
             {% endfor %}
             </ul>
 
-            <a href="{% url artists %}" class="more-button">see full roster </a>
+            <a href="{% url artists %}" class="button button-gray font-georgia-bold-italic white-color">meet more artists</a>
         </div><!-- span4 -->
 
     </div><!-- row -->
