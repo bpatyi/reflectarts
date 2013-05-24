@@ -38,10 +38,11 @@ class ContactView(View):
         if valid:
             cleaned_data = form.cleaned_data
             name = cleaned_data['name']
+            location = cleaned_data['location']
             from_email = cleaned_data['email']
             message = cleaned_data['comment']
 
-            subject = "Email from %s" % name
+            subject = "Email from %s, %s" % (name, location)
 
             if subject and message and from_email:
                 try:
