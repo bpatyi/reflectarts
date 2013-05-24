@@ -144,6 +144,21 @@ a:hover {
 #index-artists-list li:last-of-type {
   margin-bottom: 40px;
 }
+#contact-form-wrapper {
+  background-color: #e4e4e4;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 20px;
+}
+#contact-form-wrapper input[type='text'], #contact-form-wrapper textarea {
+  width: 98%;
+}
+#contact-form-wrapper .control-group {
+  margin: 0;
+}
 /* === 5. FOOTER === */
 #footer {
   background-color: #e4e4e4;
@@ -168,6 +183,12 @@ a:hover {
 #footer #copyright {
   margin-left: 10px;
 }
+#footer #footer-menu {
+  margin: 0 0 0 25px;
+}
+#footer #top {
+  margin-right: 20px;
+}
 /* === 6. ETC. === */
 .hr-dotted {
   margin: 20px 0;
@@ -185,11 +206,12 @@ a:hover {
 }
 .button {
   padding: 5px 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  border: 0;
 }
 .white-color {
   color: #ffffff;
@@ -211,4 +233,7 @@ a:hover {
 }
 .bold {
   font-weight: bold;
+}
+.italic {
+  font-style: italic;
 }

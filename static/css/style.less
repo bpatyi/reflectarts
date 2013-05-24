@@ -191,6 +191,19 @@ a{
     }
 }
 
+#contact-form-wrapper{
+    background-color: @gray-e4;
+    .rounded-corners(5px);
+    padding: 20px;
+
+    input[type='text'], textarea{
+        width: 98%;
+    }
+    .control-group{
+        margin: 0;
+    }
+}
+
 /* === 5. FOOTER === */
 #footer{
     background-color: @gray-e4;
@@ -212,6 +225,14 @@ a{
 
     #copyright{
         margin-left: 10px;
+    }
+
+    #footer-menu{
+        margin: 0 0 0 25px;
+    }
+
+    #top{
+        margin-right: 20px;
     }
 }
 
@@ -236,7 +257,8 @@ a{
 
 .button{
     padding: 5px 10px;
-    .rounded-corners(5px);
+    .rounded-corners(10px);
+    border: 0;
 }
 
 .white-color{
@@ -263,4 +285,8 @@ a{
 
 .bold{
     font-weight: bold;
+}
+
+.italic{
+    font-style: italic;
 }
