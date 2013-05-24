@@ -146,6 +146,7 @@ INSTALLED_APPS = (
 
     'south',
     'easy_thumbnails',
+    'widget_tweaks',
 
     'core',
     'artists',
