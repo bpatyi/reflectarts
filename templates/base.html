@@ -40,7 +40,9 @@
             <div class="page-header">
                 <div class="row">
                     <div class="span4">
-                        <img src="{{ STATIC_URL }}img/logo_new.png"/>
+                        <a href="{% url index %}">
+                            <img src="{{ STATIC_URL }}img/logo_new.png"/>
+                        </a>
                     </div>
                     <div class="span8">
                         <ul class="nav nav-pills pull-right">
@@ -123,8 +125,8 @@
                 <div class="span4" id="copyright-wrapper">
                     <span id="copyright">&copy; {% now "Y" %}. Reflect Arts.com All rights reserved.</span>
                 </div>
-                <div class="span8">
-                    <ul class="inline font-goorgia-bold-italic">
+                <div class="span6">
+                    <ul class="inline font-georgia-bold-italic" id="footer-menu">
                         <li>
                             <a href="{% url services %}">Services</a>
                         </li>
@@ -135,6 +137,9 @@
                             <a href="https://twitter.com/reflectarts">Twitter</a>
                         </li>
                     </ul>
+                </div>
+                <div class="span2">
+                    <span class="pull-right"><a href="#" id="top" class="font-georgia-italic">To the Top</a></span>
                 </div>
             </div>
             {% endblock %}
@@ -150,6 +155,15 @@
     <script src="{{ STATIC_URL }}js/jquery-1.9.1.min.js"></script>
     <script src="{{ STATIC_URL }}js/modernizr.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#top').click(function(){
+                $('html, body').animate({scrollTop:0}, 'slow');
+                return false;
+            });
+        });
+    </script>
 
   </body>
 </html>
