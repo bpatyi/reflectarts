@@ -8,6 +8,10 @@
 
     <h3>{{ exhibition.title }}</h3>
 
+     <!-- AddThis Button BEGIN -->
+    <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=300&amp;pubid=ra-51925776112b67c6" addthis:url="{% url exhibition slug=e.slug %}" addthis:title="{{ e.title }}" addthis:description="{{ e.title }}"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+    <!-- AddThis Button END -->
+
     <p class="exhibition-dates">{{ exhibition.from_date|date:"F d"}}, {{ exhibition.from_date|date:"Y" }} - {{ exhibition.to_date|date:"F d" }}, {{ exhibition.to_date|date:"Y" }}</p>
     <p class="exhibition-place">{{ exhibition.place }}, {{ exhibition.extra_description|removetags:"p span"|safe }}</p>
 
