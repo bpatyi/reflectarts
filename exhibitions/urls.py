@@ -3,5 +3,5 @@ from exhibitions.views import ExhibitionList, ExhibitionDetail
 
 urlpatterns = patterns('',
     url(r'^exhibitions/$', ExhibitionList.as_view(), name='exhibitions'),
-    url(r'^exhibitions/(?P<slug>\w+)$', ExhibitionDetail.as_view(), name='exhibition'),
+    url(r'^exhibitions/(?P<slug>.*?)/$', ExhibitionDetail.as_view(), name='exhibition'),
 )

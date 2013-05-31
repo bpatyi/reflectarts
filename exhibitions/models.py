@@ -8,7 +8,7 @@ class Exhibition(models.Model):
     description = models.TextField(verbose_name=u'description',)
     exhibitor = models.CharField(max_length=128)
 
-    slug = AutoSlugField(populate_from='title', slugify=lambda value: value.replace(' ','-'))
+    slug = AutoSlugField(populate_from='title', slugify=lambda value: value.replace(' ','-').replace('/','').replace(',',''))
 
     place = models.CharField(max_length=255)
     extra_description = models.TextField(blank=True, null=True, default='')
