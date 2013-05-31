@@ -15,6 +15,16 @@
         <div class="span4">
             <h3>Reflect-arts Selected Exhibitions and Events </h3>
 
+            <div class="exhibition">
+            {% for e in exhibitions %}
+                <h4>{{ e.title }}</h4>
+                <p>{{ e.from_date|date:"F d"}}, {{e.from_date|date:"Y"}} - {{e.to_date|date:"F d"}}, {{e.to_date|date:"Y"}}</p>
+                <p class="light">{{ e.place }}</p>
+
+                <a href="{% url exhibition slug=e.slug %}" class="font-georgia-bold-italic">more info</a>
+            {% endfor %}
+            </div>
+
         </div><!-- span4 -->
 
         <div class="span4">
