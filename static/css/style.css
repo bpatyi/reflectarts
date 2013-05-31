@@ -75,7 +75,9 @@ a:hover {
 .nav-pills > li > a:hover {
   background-color: #24b8f0;
 }
-.nav-pills > .active > a, .nav-pills > .active > a:hover, .nav-pills > .active > a:focus {
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover,
+.nav-pills > .active > a:focus {
   font-family: 'Georgia Bold Italic', Sans-Serif;
   color: #ffffff;
   background-color: #24b8f0;
@@ -116,6 +118,9 @@ a:hover {
 #content-wrapper {
   margin-bottom: 40px;
 }
+.block-title {
+  line-height: 24px;
+}
 .reflect-list-style li {
   margin-bottom: 10px;
 }
@@ -126,7 +131,7 @@ a:hover {
   color: #333333;
   text-decoration: none;
 }
-.image-wrapper {
+.artist-wrapper {
   background-color: #e4e4e4;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -135,7 +140,7 @@ a:hover {
   border-radius: 5px;
   padding: 10px;
 }
-.image-wrapper img {
+.artist-wrapper img {
   margin: 5px 5px 10px 5px;
 }
 #index-artists-list li {
@@ -153,10 +158,20 @@ a:hover {
   border-radius: 5px;
   padding: 20px;
 }
-#contact-form-wrapper input[type='text'], #contact-form-wrapper textarea {
+#contact-form-wrapper input[type='text'],
+#contact-form-wrapper textarea {
   width: 98%;
 }
 #contact-form-wrapper .control-group {
+  margin: 0;
+}
+.exhibition {
+  margin: 20px 0 0 0;
+}
+.exhibition p {
+  margin: 0;
+}
+.exhibition .exhibition-title {
   margin: 0;
 }
 /* === 5. FOOTER === */
