@@ -1,1 +1,17 @@
 {% extends 'base.html' %}
+
+{% block intros %}
+    <p>{{ intro|safe }}</p>
+{% endblock %}
+
+{% block content %}
+
+    <h3>{{ exhibition.title }}</h3>
+
+    <p class="exhibition-dates">{{ exhibition.from_date|date:"F d"}}, {{ exhibition.from_date|date:"Y" }} - {{ exhibition.to_date|date:"F d" }}, {{ exhibition.to_date|date:"Y" }}</p>
+    <p class="exhibition-place">{{ exhibition.place }}, {{ exhibition.extra_description|removetags:"p span"|safe }}</p>
+
+    <p>{{ exhibition.description|safe }}</p>
+
+{% endblock %}
+
