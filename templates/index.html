@@ -13,27 +13,35 @@
     <div class="row">
 
         <div class="span4">
-            <h3>Reflect-arts Selected Exhibitions and Events </h3>
+            <h3 class="block-title">Reflect-arts Selected Exhibitions and Events </h3>
 
-            <div class="exhibition">
             {% for e in exhibitions %}
-                <h4>{{ e.title }}</h4>
-                <p>{{ e.from_date|date:"F d"}}, {{e.from_date|date:"Y"}} - {{e.to_date|date:"F d"}}, {{e.to_date|date:"Y"}}</p>
-                <p class="light">{{ e.place }}</p>
+            <div class="exhibition">
+                <h4 class="exhibition-title">{{ e.title }}</h4>
+                <p class="exhibition-dates light-gray">{{ e.from_date|date:"F d"}}, {{ e.from_date|date:"Y" }} - {{ e.to_date|date:"F d" }}, {{ e.to_date|date:"Y" }}</p>
+                <p class="exhibition-place light-gray">{{ e.place }}, {{ e.extra_description|removetags:"p span"|safe }}</p>
 
                 <a href="{% url exhibition slug=e.slug %}" class="font-georgia-bold-italic">more info</a>
+
+                <!-- AddThis Button BEGIN -->
+                <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=300&amp;pubid=ra-51925776112b67c6" addthis:url="{% url exhibition slug=e.slug %}" addthis:title="{{ e.title }}" addthis:description="{{ e.title }}"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+                <!-- AddThis Button END -->
+            </div>
             {% endfor %}
+
+            <div class="clearfix" style="margin-top: 20px;">
+            <a href="{% url exhibitions %}" class="button button-gray font-georgia-bold-italic white-color">see full list of events</a>
             </div>
 
         </div><!-- span4 -->
 
         <div class="span4">
-            <h3>Selected artists</h3>
+            <h3 class="block-title">Selected artists</h3>
 
             <ul class="unstyled reflect-list-style" id="index-artists-list">
             {% for artist in selected_artists %}
                 <li>
-                    <div class="image-wrapper">
+                    <div class="artist-wrapper">
                         <img src="{{ artist.image|thumbnail_url:'artist_thumb' }}" />
                         <span class="font-georgia-italic" >{{ artist.get_name }}</span>
                         <a href="{% url artist slug=artist.slug %}" class="pull-right font-georgia-italic"> more info </a>
