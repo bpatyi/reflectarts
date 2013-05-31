@@ -4,6 +4,7 @@ from django.template.response import TemplateResponse, HttpResponse
 from utils.tools import getIntro
 
 from artists.models import Artist
+from exhibitions.models import Exhibition
 
 
 class Index(View):
@@ -15,9 +16,12 @@ class Index(View):
 
         selected_artists = Artist.objects.filter(selected=True).order_by('-created_at')
 
+        exhibitions = Exhibition.objects.all()[:10]
+
         context = {
             'intro': intro,
             'selected_artists': selected_artists,
+            'exhibitions': exhibitions,
         }
 
         return TemplateResponse(request, self.template, context)
