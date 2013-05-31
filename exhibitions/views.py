@@ -33,7 +33,8 @@ class ExhibitionDetail(DetailView):
         qs = super(ExhibitionDetail, self).get_queryset()
         slug = self.kwargs.get('slug', None)
 
-        qs = Exhibition.objects.get(slug=slug)
+        if slug:
+            qs = qs.filter(slug=slug)
 
         return qs
 
@@ -41,9 +42,9 @@ class ExhibitionDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ExhibitionDetail, self).get_context_data(**kwargs)
 
-        #self.pictures = self.objects.pictures_set.all()
+        self.pictures = self.object.picture_set.all()
 
-        #context['pictures'] = self.pictures
+        context['pictures'] = self.pictures
         context['intro'] = getIntro(2)
 
         return context
