@@ -17,9 +17,8 @@
     </ul>
 
     {% if page_obj.has_previous or page_obj.has_next %}
-    <div class="pagination">
+    <div class="pagination font-georgia-bold-italic">
         <ul>
-
             <li {% if not page_obj.has_previous %} class="disabled" {% endif %}>
                 <a href="?page={% if page_obj.has_previous %}{{ page_obj.previous_page_number }}{% endif %}{% if current_tag %}&tag={{ current_tag.slug }}{% endif %}">«</a>
             </li>
