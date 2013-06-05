@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load thumbnail %}
 
 {% block subtitle %}| Artists {% endblock %}
 
@@ -10,11 +11,30 @@
 
     <h3>Reflect-arts Artists</h3>
 
+    {% for artist in artist_list %}
+    <div class="artist row" style="margin-bottom: 20px;">
+    	<div class="span2">
+    		<img class="thumbnail" src="{{ MEDIA_URL }}{{ artist.image }}"/> {# if want to crop image |thumbnail_url:'avatar_160x160' && DEL media url #}
+    	</div>
+    	<div class="span6">
+    		<h4 class="font-georgia-bold-italic">{{ artist.get_name }}</h4>
+    		<p class="light-gray">{{ artist.description|removetags:"p span"|safe|truncatewords:30 }}</p>
+    		<p>
+    			<a class="font-georgia-bold-italic" href="{% url artist slug=artist.slug %}">more info</a>
+    		</p>
+    	</div>
+    </div>
+    {% endfor %}
+
+    {% comment %}
+
     <ul class="unstyled reflect-list-style">
     {% for artist in artist_list %}
         <li><a href="{% url artist slug=artist.slug %}">{{ artist.get_name }}</a></li>
     {% endfor %}
     </ul>
+
+    {% endcomment %}
 
     {% if page_obj.has_previous or page_obj.has_next %}
     <div class="pagination font-georgia-bold-italic">
