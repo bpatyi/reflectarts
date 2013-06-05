@@ -19,6 +19,9 @@
     		<h4 class="font-georgia-bold-italic">{{ e.title }} <small>({{ e.from_date|date:"F d"}}, {{ e.from_date|date:"Y" }} - {{ e.to_date|date:"F d" }}, {{ e.to_date|date:"Y" }})</small></h4>
             <p class="light-gray">{{ e.place }}, {{ e.extra_description|removetags:"p span"|safe }}</p>
             <a href="{% url exhibition slug=e.slug %}" class="font-georgia-bold-italic">more info</a>
+            <!-- AddThis Button BEGIN -->
+            <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=300&amp;pubid=ra-51925776112b67c6" addthis:url="{% url exhibition slug=e.slug %}" addthis:title="{{ e.title }}" addthis:description="{{ e.title }}"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+            <!-- AddThis Button END -->
     	</div>
     </div>
     {% endfor %}
