@@ -14,7 +14,7 @@
     {% for artist in artist_list %}
     <div class="artist row" style="margin-bottom: 20px;">
     	<div class="span2">
-    		<img class="thumbnail" src="{{ MEDIA_URL }}{{ artist.image }}"/> {# if want to crop image |thumbnail_url:'avatar_160x160' && DEL media url #}
+    		<img class="thumbnail" src="{% thumbnail artist.image 300x300 crop %}"/>
     	</div>
     	<div class="span6">
     		<h4 class="font-georgia-bold-italic">{{ artist.get_name }}</h4>
