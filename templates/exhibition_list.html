@@ -10,11 +10,29 @@
 
     <h3>Selected Exhibitions</h3>
 
+    {% for e in exhibition_list %}
+    <div class="row" style="margin-bottom: 20px;">
+    	<div class="span2">
+    		<img class="thumbnail" src="{{ STATIC_URL }}img/exhibition_default.png"/>
+    	</div>
+    	<div class="span6">
+    		<h4 class="font-georgia-bold-italic">{{ e.title }} <small>({{ e.from_date|date:"F d"}}, {{ e.from_date|date:"Y" }} - {{ e.to_date|date:"F d" }}, {{ e.to_date|date:"Y" }})</small></h4>
+            <p class="light-gray">{{ e.place }}, {{ e.extra_description|removetags:"p span"|safe }}</p>
+            <a href="{% url exhibition slug=e.slug %}" class="font-georgia-bold-italic">more info</a>
+    	</div>
+    </div>
+    {% endfor %}
+
+
+    {% comment %}
+
     <ul id="exhibition-list" class="unstyled reflect-list-style">
         {% for e in exhibition_list %}
             <li><a href="{% url exhibition slug=e.slug %}">{{ e.title }}</a></li>
         {% endfor %}
     </ul>
+
+    {% endcomment %}
 
     {% if page_obj.has_previous or page_obj.has_next %}
     <div class="pagination font-georgia-bold-italic">

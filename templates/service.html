@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    <h3>{{ flatpage.title }}</h3>
-    <p>{{ flatpage.content|safe }}</p>
+    <h3 class="">{{ flatpage.title }}</h3>
+    <p class="light-gray">{{ flatpage.content|removetags:"p span"|safe }}</p>
 
 {% endblock %}
