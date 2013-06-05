@@ -6,17 +6,31 @@
 
 {% block content %}
 
-    <h3>{{ artist.get_name }}</h3>
+    <h3 class="font-georgia-bold-italic">
+    	{{ artist.get_name }}
+    	<small>
+    		({{ artist.email }}) 
+    	</small>
+    </h3>
+    <p>
+    	<a class="font-georgia-bold-italic" href="{{ artist.website_url }}" target="_blank">
+    		view the artist's website
+    		<i class="icon-share"></i>
+    	</a>
+    </p>
 
+    {% comment %}
     <address>
         <strong>{{ artist.email }}</strong> <br>
         <a href="{{ artist.website_url}}"> website link </a>
     </address>
+    {% endcomment %}
 
     {% if artist.description %}
-    <p>
-        {{ artist.description|safe }}
+    <p class="light-gray">
+        {{ artist.description|removetags:'p span'|safe }}
     </p>
     {% endif %}
 
+    <img src="{{ MEDIA_URL }}{{ artist.image }}"/>
 {% endblock %}
