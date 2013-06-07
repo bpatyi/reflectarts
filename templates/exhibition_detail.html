@@ -18,5 +18,21 @@
 
     <p class="light-gray">{{ exhibition.description|removetags:"p span"|safe }}</p>
 
+    {% if pictures %}
+    <ul class="thumbnails">
+    	{% for pic in pictures %}
+    		<li class="span4">
+    			<div class="thumbnail">
+    				<img src="{{ MEDIA_URL }}{{ pic.image }}" />
+    				<div class="caption">
+                    	<h4 class="font-georgia-bold-italic">{{ pic.title }}</h4>
+                    	<p>{{ pic.description|removetags:'p span'|safe }}</p>
+                  	</div>
+                </div>
+    		</li>		
+    	{% endfor %}
+    </ul>
+    {% endif %}
+
 {% endblock %}
 
